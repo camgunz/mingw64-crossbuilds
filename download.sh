@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ ! -d archives ]
+then
+    mkdir archives;
+fi
+
 cd archives;
 for url in `cat ../url_list`
 do

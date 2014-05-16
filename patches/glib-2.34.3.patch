@@ -1,0 +1,17 @@
+--- gio/giomodule.c	2014-05-16 09:40:45.672026737 -0400
++++ gio/giomodule.c	2014-05-16 09:41:05.469920591 -0400
+@@ -801,6 +801,14 @@
+   return gio_dll;
+ }
+ 
++#else
++
++void *
++_g_io_win32_get_module (void)
++{
++  return NULL;
++}
++
+ #endif
+ 
+ #undef GIO_MODULE_DIR

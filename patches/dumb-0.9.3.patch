@@ -1,0 +1,94 @@
+--- Makefile	2005-08-07 20:18:41.000000000 -0400
++++ Makefile	2014-05-16 10:29:24.206542621 -0400
+@@ -36,15 +36,15 @@
+ COMMA := ,
+ 
+ ifdef USE_ICC
+-CC := icc
++CC ?= icc
+ else
+ ifdef USE_SGICC
+-CC := cc
++CC ?= cc
+ else
+-CC := gcc
++CC ?= gcc
+ endif
+ endif
+-AR := ar
++AR ?= ar
+ 
+ 
+ # Configuration.
+@@ -234,7 +234,7 @@
+ CFLAGS_RELEASE := -Iinclude $(WFLAGS) $(OFLAGS)
+ CFLAGS_DEBUG := -Iinclude $(WFLAGS) $(DBGFLAGS)
+ 
+-LDFLAGS := -s
++LDFLAGS += -s
+ 
+ 
+ CORE_EXAMPLES_OBJ := $(addprefix examples/, $(notdir $(patsubst %.c, %.o, $(CORE_EXAMPLES))))
+@@ -316,13 +316,13 @@
+ 
+ 
+ OBJDIR := $(OBJDIR_BASE)/release
+-CFLAGS := $(CFLAGS_RELEASE)
++CFLAGS += $(CFLAGS_RELEASE)
+ CORE_LIB_FILE := $(LIBDIR)/libdumb.a
+ ALLEGRO_LIB_FILE := $(LIBDIR)/libaldmb.a
+ include make/Makefile.inc
+ 
+ OBJDIR := $(OBJDIR_BASE)/debug
+-CFLAGS := $(CFLAGS_DEBUG)
++CFLAGS += $(CFLAGS_DEBUG)
+ CORE_LIB_FILE := $(LIBDIR)/libdumbd.a
+ ALLEGRO_LIB_FILE := $(LIBDIR)/libaldmd.a
+ include make/Makefile.inc
+--- Makefile.rdy	2005-08-07 20:18:39.000000000 -0400
++++ Makefile.rdy	2014-05-16 10:29:30.393634574 -0400
+@@ -36,15 +36,15 @@
+ COMMA := ,
+ 
+ ifdef USE_ICC
+-CC := icc
++CC ?= icc
+ else
+ ifdef USE_SGICC
+-CC := cc
++CC ?= cc
+ else
+-CC := gcc
++CC ?= gcc
+ endif
+ endif
+-AR := ar
++AR ?= ar
+ 
+ 
+ # Configuration.
+@@ -234,7 +234,7 @@
+ CFLAGS_RELEASE := -Iinclude $(WFLAGS) $(OFLAGS)
+ CFLAGS_DEBUG := -Iinclude $(WFLAGS) $(DBGFLAGS)
+ 
+-LDFLAGS := -s
++LDFLAGS += -s
+ 
+ 
+ CORE_EXAMPLES_OBJ := $(addprefix examples/, $(notdir $(patsubst %.c, %.o, $(CORE_EXAMPLES))))
+@@ -316,13 +316,13 @@
+ 
+ 
+ OBJDIR := $(OBJDIR_BASE)/release
+-CFLAGS := $(CFLAGS_RELEASE)
++CFLAGS += $(CFLAGS_RELEASE)
+ CORE_LIB_FILE := $(LIBDIR)/libdumb.a
+ ALLEGRO_LIB_FILE := $(LIBDIR)/libaldmb.a
+ include make/Makefile.inc
+ 
+ OBJDIR := $(OBJDIR_BASE)/debug
+-CFLAGS := $(CFLAGS_DEBUG)
++CFLAGS += $(CFLAGS_DEBUG)
+ CORE_LIB_FILE := $(LIBDIR)/libdumbd.a
+ ALLEGRO_LIB_FILE := $(LIBDIR)/libaldmd.a
+ include make/Makefile.inc

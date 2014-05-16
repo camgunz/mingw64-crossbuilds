@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 cd archives;
 for url in `cat ../url_list`

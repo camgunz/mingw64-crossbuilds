@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 rm -rf source || exit 1
 mkdir source || exit 1
@@ -15,3 +15,6 @@ do
         tar xf ../archives/$archive || exit 1
     fi
 done
+
+hg clone https://bitbucket.org/zserge/jsmn jsmn
+

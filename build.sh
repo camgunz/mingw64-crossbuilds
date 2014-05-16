@@ -2,6 +2,18 @@
 
 . ./config.sh
 
+if [ ! `which msgfmt` ]
+then
+    echo "Couldn't find msgfmt program, install gettext"
+    exit 1
+fi
+
+if [ ! `which libtool` ]
+then
+    echo "Couldn't find libtool program, install libtool"
+    exit 1
+fi
+
 function build_toolchain_file () {
     if [ ! $1 ]
     then

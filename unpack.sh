@@ -1,5 +1,17 @@
 #!/bin/bash
 
+if [ ! `which unzip` ]
+then
+    echo "Couldn't find unzip program, install unzip"
+    exit 1
+fi
+
+if [ ! `which hg` ]
+then
+    echo "Couldn't find hg program, install mercurial"
+    exit 1
+fi
+
 rm -rf source || exit 1
 mkdir source || exit 1
 cd source

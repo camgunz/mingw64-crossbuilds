@@ -14,6 +14,18 @@ then
     exit 1
 fi
 
+if [ ! `which pkg-config` ]
+then
+    echo "Couldn't find pkg-config program, install pkg-config"
+    exit 1
+fi
+
+if [ ! `which patch` ]
+then
+    echo "Couldn't find patch program, install patch"
+    exit 1
+fi
+
 function build_toolchain_file () {
     if [ ! $1 ]
     then
@@ -42,7 +54,10 @@ do
 
     if [ -f ../../patches/$MODULE.patch ]
     then
+        echo "Patching $MODULE"
         patch -p0 < ../../patches/$MODULE.patch
+    else
+        echo "No patch found"
     fi
 
     ../../modules/build-$MODULE.sh || exit 1

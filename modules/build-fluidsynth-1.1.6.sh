@@ -6,6 +6,7 @@ cmake . \
     -DCMAKE_CACHEFILE_DIR=$BASE_DIR/$MODULE/fbuild \
     -DCMAKE_BUILD_TYPE=Release \
     -DOSS_SUPPORT=FALSE \
+    -DBUILD_SHARED_LIBS=FALSE \
     -Denable-ladspa=no \
     -Denable-portaudio=no \
     -Denable-debug=no \

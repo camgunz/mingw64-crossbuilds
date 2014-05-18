@@ -47,6 +47,9 @@ function build_toolchain_file () {
 
 export -f build_toolchain_file
 
+rm -rf $BUILD_DIR || exit 1
+mkdir $BUILD_DIR || exit 1
+
 for module in `cat modules_list`
 do
     export MODULE=$module

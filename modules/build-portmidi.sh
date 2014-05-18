@@ -11,5 +11,5 @@ cmake .. -G"Unix Makefiles" \
     || exit 1;
   make && \
   cp libportmidi.dll libportmidi.dll.a libportmidi_s.a $PREFIX/lib &&
-  cp ../pm_common/portmidi.h $PREFIX/include
+  cp ../pm_common/portmidi.h ../porttime/porttime.h $PREFIX/include
 

@@ -11,6 +11,7 @@ export ARCHIVE_DIR=$BASE_DIR/archives
 export AR="$BIN_DIR/$HOST_TRIPLET-ar"
 export CC="$BIN_DIR/$HOST_TRIPLET-gcc"
 export CXX="$BIN_DIR/$HOST_TRIPLET-g++"
+export DLLTOOL="$BIN_DIR/$HOST_TRIPLET-dlltool"
 export LD="$BIN_DIR/$HOST_TRIPLET-ld"
 export NM="$BIN_DIR/$HOST_TRIPLET-nm"
 export OBJCOPY="$BIN_DIR/$HOST_TRIPLET-objcopy"

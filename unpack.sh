@@ -12,6 +12,12 @@ then
     exit 1
 fi
 
+if [ ! `which svn` ]
+then
+    echo "Couldn't find svn program, install subversion"
+    exit 1
+fi
+
 rm -rf source || exit 1
 mkdir source || exit 1
 cd source
@@ -28,5 +34,6 @@ do
     fi
 done
 
+echo "Unpacking jsmn (cloning from Mercurial repository)"
 hg clone https://bitbucket.org/zserge/jsmn jsmn
 

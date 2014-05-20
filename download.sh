@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ ! `which curl` ]
+then
+    echo "Couldn't find curl program, install curl"
+    exit 1
+fi
+
 if [ ! -d archives ]
 then
     mkdir archives;

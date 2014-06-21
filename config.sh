@@ -1,7 +1,10 @@
-export BIN_DIR="/usr/bin"
+export VALID_TOOLCHAINS="glibc"
+export NACL_SDK_ROOT="$HOME/code/nacl_sdk/pepper_35"
 export BUILD_TRIPLET="x86_64-pc-linux-gnu"
-export HOST_TRIPLET="i686-w64-mingw32"
-export HOST_PREFIX="/usr/$HOST_TRIPLET"
+export HOST_TRIPLET="x86_64-nacl"
+
+export BIN_DIR="$NACL_SDK_ROOT/toolchain/linux_x86_glibc/bin"
+export HOST_PREFIX="$NACL_SDL_ROOT/toolchain/linux_x86_glibc/$HOST_TRIPLET"
 
 export BASE_DIR=`pwd`
 export BUILD_DIR=$BASE_DIR/build
@@ -18,7 +21,7 @@ export OBJCOPY="$BIN_DIR/$HOST_TRIPLET-objcopy"
 export OBJDUMP="$BIN_DIR/$HOST_TRIPLET-objdump"
 export RANLIB="$BIN_DIR/$HOST_TRIPLET-ranlib"
 export STRIP="$BIN_DIR/$HOST_TRIPLET-strip"
-export WINDRES="$BIN_DIR/$HOST_TRIPLET-windres"
+# export WINDRES="$BIN_DIR/$HOST_TRIPLET-windres"
 
 export PREFIX=$BUILD_DIR
 export CFLAGS="-I$HOST_PREFIX/include -I$PREFIX/include"

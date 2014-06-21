@@ -12,7 +12,7 @@ then
 fi
 
 cd archives;
-for url in `cat ../url_list`
+for url in `cat ../urls.list`
 do
     archive=`basename $url`
     if [ ! -f $archive ]

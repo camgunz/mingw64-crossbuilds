@@ -1,7 +1,7 @@
-build_toolchain_file mingw64-toolchain.cmake
+build_toolchain_file $TOOLCHAIN_FILE
 
 cmake . -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$PREFIX \
-                           -DCMAKE_TOOLCHAIN_FILE=mingw64-toolchain.cmake \
+                           -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE \
                            || exit 1
 
 make || exit 1

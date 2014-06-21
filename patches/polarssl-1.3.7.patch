@@ -1,0 +1,20 @@
+--- include/polarssl/config.h.orig	2014-06-21 12:48:43.621307985 -0400
++++ include/polarssl/config.h	2014-06-21 12:49:11.974487716 -0400
+@@ -1055,7 +1055,7 @@
+  *
+  * This modules adds support for the AES-NI instructions on x86-64
+  */
+-#define POLARSSL_AESNI_C
++/* #define POLARSSL_AESNI_C */
+ 
+ /**
+  * \def POLARSSL_AES_C
+@@ -1608,7 +1608,7 @@
+  *
+  * This modules adds support for the VIA PadLock on x86.
+  */
+-#define POLARSSL_PADLOCK_C
++/* #define POLARSSL_PADLOCK_C */
+ 
+ /**
+  * \def POLARSSL_PBKDF2_C

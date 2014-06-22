@@ -51,11 +51,11 @@ modules = (
         'dumb-0.9.3.tar.gz',
         'http://downloads.sourceforge.net/project/dumb/dumb/0.9.3/dumb-0.9.3.tar.gz'
     ),
-    Module(
-        'libmad-0.15.1b',
-        'libmad-0.15.1b.tar.gz',
-        'ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz'
-    ),
+    # Module(
+    #     'libmad-0.15.1b',
+    #     'libmad-0.15.1b.tar.gz',
+    #     'ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz'
+    # ),
     Module(
         'fluidsynth-1.1.6',
         'fluidsynth-1.1.6.tar.bz2',

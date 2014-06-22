@@ -26,6 +26,12 @@ then
     exit 1
 fi
 
+if [ ! `which doxygen` ]
+then
+    echo "Couldn't find doxygen program, install doxygen"
+    exit 1
+fi
+
 function build_toolchain_file () {
     if [ ! $1 ]
     then

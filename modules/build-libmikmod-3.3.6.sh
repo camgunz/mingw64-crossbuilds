@@ -20,7 +20,7 @@
             --disable-osx \
             --disable-mac \
             --enable-win \
-            --enable-ds \
+            --disable-ds \
             --enable-xaudio2 \
             --disable-xaudio28 \
             --disable-os2 \

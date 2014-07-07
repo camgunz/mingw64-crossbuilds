@@ -22,6 +22,15 @@
 *.x86_64
 *.hex
 
+# Editor files
+*.swp
+
+# Generated list files
+archives.list
+modules.list
+hg_repos.list
+git_repos.list
+
 # Folders
 archives
 source

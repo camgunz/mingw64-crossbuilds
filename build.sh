@@ -26,6 +26,18 @@ then
     exit 1
 fi
 
+if [ ! `which ragel` ]
+then
+    echo "Couldn't find ragel program, install ragel"
+    exit 1
+fi
+
+if [ ! `which doxygen` ]
+then
+    echo "Couldn't find doxygen program, install Doxygen"
+    exit 1
+fi
+
 function build_toolchain_file () {
     if [ ! $1 ]
     then
@@ -47,10 +59,10 @@ function build_toolchain_file () {
 
 export -f build_toolchain_file
 
-rm -rf $BUILD_DIR || exit 1
-mkdir $BUILD_DIR || exit 1
+# rm -rf $BUILD_DIR || exit 1
+# mkdir $BUILD_DIR || exit 1
 
-for module in `cat modules_list`
+for module in `cat modules.list`
 do
     export MODULE=$module
     cd $BASE_DIR/source/$MODULE

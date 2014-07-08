@@ -38,6 +38,12 @@ then
     exit 1
 fi
 
+if [ ! `which gtkdocize` ]
+then
+    echo "Couldn't find gtkdocize program, install gtkdocize"
+    exit 1
+fi
+
 function build_toolchain_file () {
     if [ ! $1 ]
     then
@@ -59,8 +65,8 @@ function build_toolchain_file () {
 
 export -f build_toolchain_file
 
-rm -rf $BUILD_DIR || exit 1
-mkdir $BUILD_DIR || exit 1
+# rm -rf $BUILD_DIR || exit 1
+# mkdir $BUILD_DIR || exit 1
 
 for module in `cat modules.list`
 do

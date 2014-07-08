@@ -2,6 +2,7 @@
 
 from __future__ import with_statement
 
+import json
 import os.path
 
 from collections import namedtuple
@@ -28,51 +29,54 @@ archive_extensions = (
 
 modules = []
 
-def get_module(url):
-    basename = os.path.basename(url)
+def get_module(url, mod_dict):
+    basename = mod_dict.get('archive', os.path.basename(url))
 
     for repository, repo_class in repositories:
         if url.startswith(repository):
             return repo_class(basename, url)
 
     for extension in archive_extensions:
-        if basename.endswith(extension):
-            module_name = basename[:-len(extension)]
-            return Module(module_name, basename, url)
+        if 'module' in mod_dict:
+            return Module(mod_dict['module'], basename, url)
+        elif basename.endswith(extension):
+            return Module(basename[:-len(extension)], basename, url)
 
-with open('urls.list', 'rb') as urls_fobj:
-    for url in urls_fobj:
-        url = url.decode('utf8').strip()
-        if not url:
-            continue
-        if url.startswith('#'):
-            continue
-        module = get_module(url)
+def main():
+    with open('urls.json', 'rb') as json_fobj:
+        mod_json_data = json_fobj.read().decode('utf8')
+        
+    mod_json = json.loads(mod_json_data)
+
+    for mod_dict in mod_json:
+        url = mod_dict['url']
+        module = get_module(url, mod_dict)
         if module is None:
             raise Exception('Could not extract module from %r' % (url))
         modules.append(module)
 
-modules_fobj = open('modules.list', 'wb')
-archives_fobj = open('archives.list', 'wb')
-hg_repos_fobj = open('hg_repos.list', 'wb')
-git_repos_fobj = open('git_repos.list', 'wb')
+    modules_fobj = open('modules.list', 'wb')
+    archives_fobj = open('archives.list', 'wb')
+    hg_repos_fobj = open('hg_repos.list', 'wb')
+    git_repos_fobj = open('git_repos.list', 'wb')
 
-for module in modules:
-    modules_fobj.write(module.name.encode('utf8'))
-    modules_fobj.write('\n'.encode('utf8'))
-    if isinstance(module, Module):
-        archives_fobj.write(module.archive.encode('utf8'))
-        archives_fobj.write('\n'.encode('utf8'))
-    elif isinstance(module, HgModule):
-        hg_repos_fobj.write(module.repo.encode('utf8'))
-        hg_repos_fobj.write('\n'.encode('utf8'))
-    elif isinstance(module, GitModule):
-        git_repos_fobj.write(module.repo.encode('utf8'))
-        git_repos_fobj.write('\n'.encode('utf8'))
+    for module in modules:
+        modules_fobj.write(module.name.encode('utf8'))
+        modules_fobj.write('\n'.encode('utf8'))
+        if isinstance(module, Module):
+            archives_fobj.write(module.archive.encode('utf8'))
+            archives_fobj.write('\n'.encode('utf8'))
+        elif isinstance(module, HgModule):
+            hg_repos_fobj.write(module.repo.encode('utf8'))
+            hg_repos_fobj.write('\n'.encode('utf8'))
+        elif isinstance(module, GitModule):
+            git_repos_fobj.write(module.repo.encode('utf8'))
+            git_repos_fobj.write('\n'.encode('utf8'))
 
-modules_fobj.close()
-urls_fobj.close()
-archives_fobj.close()
-hg_repos_fobj.close()
-git_repos_fobj.close()
+    modules_fobj.close()
+    archives_fobj.close()
+    hg_repos_fobj.close()
+    git_repos_fobj.close()
+
+main()
 

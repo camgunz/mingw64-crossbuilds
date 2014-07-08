@@ -5,7 +5,7 @@
             --enable-shared \
             --with-zlib=yes \
             --with-png=yes \
-            --with-harfbuzz=yes \
+            --with-harfbuzz=no \
             || exit 1
 
 make && make install

@@ -8,7 +8,7 @@
              --with-cairo=no \
              --with-icu=no \
              --with-graphite2=no \
-             --with-freetype=no \
+             --with-freetype=auto \
              --with-uniscribe=no \
              --with-coretext=no \
              || exit 1

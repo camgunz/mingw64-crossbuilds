@@ -1,0 +1,29 @@
+--- configure.ac	2014-07-08 12:53:34.803901637 -0400
++++ configure.ac	2014-07-08 12:57:13.189385208 -0400
+@@ -145,16 +145,16 @@
+ AC_LIBTOOL_WIN32_DLL
+ AM_DISABLE_STATIC
+ 
+-if test "$pango_os_win32" = "yes"; then
+-  if test x$enable_static = xyes -o x$enable_static = x; then
+-    AC_MSG_WARN([Disabling static library build, must build as DLL on Windows.])
+-    enable_static=no
+-  fi
+-  if test x$enable_shared = xno; then
+-    AC_MSG_WARN([Enabling shared library build, must build as DLL on Windows.])
+-  fi
+-  enable_shared=yes
+-fi
++# if test "$pango_os_win32" = "yes"; then
++#   if test x$enable_static = xyes -o x$enable_static = x; then
++#     AC_MSG_WARN([Disabling static library build, must build as DLL on Windows.])
++#     enable_static=no
++#   fi
++#   if test x$enable_shared = xno; then
++#     AC_MSG_WARN([Enabling shared library build, must build as DLL on Windows.])
++#   fi
++#   enable_shared=yes
++# fi
+ 
+ AM_PROG_LIBTOOL
+ dnl when using libtool 2.x create libtool early, because it's used in configure

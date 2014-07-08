@@ -7,7 +7,7 @@ cd pbuild
 cmake .. -G"Unix Makefiles" \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_TOOLCHAIN_FILE=mingw64-toolchain.cmake \
-    -DCMAKE_CACHEFILE_DIR=$BASE_DIR/$MODULE/pbuild \
+    -DCMAKE_CACHEFILE_DIR=$BASE_DIR/source/$MODULE/pbuild \
     || exit 1;
   make && \
   cp libportmidi.dll libportmidi.dll.a libportmidi_s.a $PREFIX/lib &&

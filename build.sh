@@ -65,8 +65,8 @@ function build_toolchain_file () {
 
 export -f build_toolchain_file
 
-# rm -rf $BUILD_DIR || exit 1
-# mkdir $BUILD_DIR || exit 1
+rm -rf $BUILD_DIR || exit 1
+mkdir $BUILD_DIR || exit 1
 
 for module in `cat modules.list`
 do
@@ -81,6 +81,25 @@ do
         echo "No patch found"
     fi
 
-    ../../modules/build-$MODULE.sh || exit 1
+    ../../modules-phase1/build-$MODULE.sh || exit 1
+done
+
+cd $BASE_DIR
+./unpack.sh
+
+for module in `cat modules.list`
+do
+    export MODULE=$module
+    cd $BASE_DIR/source/$MODULE
+
+    if [ -f ../../patches/$MODULE.patch ]
+    then
+        echo "Patching $MODULE"
+        patch -p0 < ../../patches/$MODULE.patch
+    else
+        echo "No patch found"
+    fi
+
+    ../../modules-phase2/build-$MODULE.sh || exit 1
 done
 

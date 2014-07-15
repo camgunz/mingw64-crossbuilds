@@ -56,6 +56,7 @@ def main():
         modules.append(module)
 
     modules_fobj = open('modules.list', 'wb')
+    urls_fobj = open('urls.list', 'wb')
     archives_fobj = open('archives.list', 'wb')
     hg_repos_fobj = open('hg_repos.list', 'wb')
     git_repos_fobj = open('git_repos.list', 'wb')
@@ -64,6 +65,8 @@ def main():
         modules_fobj.write(module.name.encode('utf8'))
         modules_fobj.write('\n'.encode('utf8'))
         if isinstance(module, Module):
+            urls_fobj.write(module.url.encode('utf8'));
+            urls_fobj.write('\n'.encode('utf8'));
             archives_fobj.write(module.archive.encode('utf8'))
             archives_fobj.write('\n'.encode('utf8'))
         elif isinstance(module, HgModule):

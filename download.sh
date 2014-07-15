@@ -22,3 +22,5 @@ do
     fi
 done
 
+echo 'All archives downloaded'
+

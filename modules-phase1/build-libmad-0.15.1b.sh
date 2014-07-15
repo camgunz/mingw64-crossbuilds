@@ -20,4 +20,8 @@ then
     rm "$BUILD_DIR/lib/libmad.la"
 fi
 cd "$BUILD_DIR/bin" || exit 1
+if [ -f libmad-0.dll ]
+then
+    rm -f libmad-0.dll || exit 1
+fi
 ln -s $MODULE.dll libmad-0.dll || exit 1

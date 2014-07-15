@@ -30,6 +30,8 @@ archives.list
 modules.list
 hg_repos.list
 git_repos.list
+urls.list
+urls.json.save
 
 # Folders
 archives

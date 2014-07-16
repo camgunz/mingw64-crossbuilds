@@ -18,6 +18,7 @@ export OBJCOPY="$BIN_DIR/$HOST_TRIPLET-objcopy"
 export OBJDUMP="$BIN_DIR/$HOST_TRIPLET-objdump"
 export RANLIB="$BIN_DIR/$HOST_TRIPLET-ranlib"
 export STRIP="$BIN_DIR/$HOST_TRIPLET-strip"
+export RC="$BIN_DIR/$HOST_TRIPLET-windres"
 export WINDRES="$BIN_DIR/$HOST_TRIPLET-windres"
 
 export PREFIX=$BUILD_DIR

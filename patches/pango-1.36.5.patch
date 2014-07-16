@@ -27,3 +27,21 @@
  
  AM_PROG_LIBTOOL
  dnl when using libtool 2.x create libtool early, because it's used in configure
+--- pango/pango-utils.c	2014-07-16 02:30:04.028961300 -0400
++++ pango/pango-utils.c	2014-07-16 02:30:25.808843309 -0400
+@@ -713,6 +713,7 @@
+ 
+ static HMODULE pango_dll; /* MT-safe */
+ 
++#ifdef DLL_EXPORT
+ BOOL WINAPI
+ DllMain (HINSTANCE hinstDLL,
+ 	 DWORD     fdwReason,
+@@ -727,6 +728,7 @@
+ 
+   return TRUE;
+ }
++#endif
+ 
+ #endif
+ 

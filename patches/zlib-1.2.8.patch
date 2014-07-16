@@ -1,0 +1,30 @@
+--- win32/Makefile.gcc	2014-07-16 10:38:15.683855764 -0400
++++ win32/Makefile.gcc	2014-07-16 10:38:15.683855764 -0400
+@@ -42,8 +42,8 @@
+ #LOC = -DDEBUG -g
+ 
+ PREFIX =
+-CC = $(PREFIX)gcc
+-CFLAGS = $(LOC) -O3 -Wall
++CC ?= $(PREFIX)gcc
++CFLAGS := $(CFLAGS) $(LOC) -O3 -Wall
+ 
+ AS = $(CC)
+ ASFLAGS = $(LOC) -Wall
+@@ -54,7 +54,7 @@
+ AR = $(PREFIX)ar
+ ARFLAGS = rcs
+ 
+-RC = $(PREFIX)windres
++RC ?= $(PREFIX)windres
+ RCFLAGS = --define GCC_WINDRES
+ 
+ STRIP = $(PREFIX)strip
+@@ -89,6 +89,7 @@
+ 
+ $(STATICLIB): $(OBJS) $(OBJA)
+ 	$(AR) $(ARFLAGS) $@ $(OBJS) $(OBJA)
++	$(RANLIB) $(STATICLIB)
+ 
+ $(IMPLIB): $(SHAREDLIB)
+ 

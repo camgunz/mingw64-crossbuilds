@@ -92,14 +92,17 @@ do
     export MODULE=$module
     cd $BASE_DIR/source/$MODULE
 
-    if [ -f ../../patches/$MODULE.patch ]
+    if [ -f ../../modules-phase2/build-$MODULE.sh ]
     then
-        echo "Patching $MODULE"
-        patch -p0 < ../../patches/$MODULE.patch
-    else
-        echo "No patch found"
-    fi
+        if [ -f ../../patches/$MODULE.patch ]
+        then
+            echo "Patching $MODULE"
+            patch -p0 < ../../patches/$MODULE.patch
+        else
+            echo "No patch found"
+        fi
 
-    ../../modules-phase2/build-$MODULE.sh || exit 1
+        ../../modules-phase2/build-$MODULE.sh || exit 1
+    fi
 done
 

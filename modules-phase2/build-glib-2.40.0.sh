@@ -11,7 +11,7 @@ echo 'glib_cv_long_long_format=I64' >> win32.cache
 echo 'glib_cv_stack_grows=no' >> win32.cache
 chmod a-w win32.cache
 
-./configure --cache-file=win32.cache \
+CPPFLAGS='-DHAVE_IF_NAMETOINDEX=1' ./configure --cache-file=win32.cache \
             --build=$BUILD_TRIPLET \
             --host=$HOST_TRIPLET \
             --prefix=$PREFIX \
@@ -33,7 +33,7 @@ cp $GMODULE_LA_FILE $GMODULE_LA_FILE.shared || exit 1
 cp $GOBJECT_LA_FILE $GOBJECT_LA_FILE.shared || exit 1
 cp $GTHREAD_LA_FILE $GTHREAD_LA_FILE.shared || exit 1
 
-./configure --cache-file=win32.cache \
+CPPFLAGS='-DHAVE_IF_NAMETOINDEX=1' ./configure --cache-file=win32.cache \
             --build=$BUILD_TRIPLET \
             --host=$HOST_TRIPLET \
             --prefix=$PREFIX \

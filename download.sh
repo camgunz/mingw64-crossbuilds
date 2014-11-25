@@ -1,14 +1,12 @@
 #!/bin/bash
 
-if [ ! `which curl` ]
-then
-    echo "Couldn't find curl program, install curl"
-    exit 1
-fi
+. ./config.sh
 
-if [ ! -d archives ]
+./check_prereqs.sh
+
+if [ ! -d $ARCHIVE_DIR ]
 then
-    mkdir archives;
+    mkdir $ARCHIVE_DIR;
 fi
 
 cd archives;

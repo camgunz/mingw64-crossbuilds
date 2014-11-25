@@ -2,47 +2,7 @@
 
 . ./config.sh
 
-if [ ! `which msgfmt` ]
-then
-    echo "Couldn't find msgfmt program, install gettext"
-    exit 1
-fi
-
-if [ ! `which libtool` ]
-then
-    echo "Couldn't find libtool program, install libtool"
-    exit 1
-fi
-
-if [ ! `which pkg-config` ]
-then
-    echo "Couldn't find pkg-config program, install pkg-config"
-    exit 1
-fi
-
-if [ ! `which patch` ]
-then
-    echo "Couldn't find patch program, install patch"
-    exit 1
-fi
-
-if [ ! `which ragel` ]
-then
-    echo "Couldn't find ragel program, install ragel"
-    exit 1
-fi
-
-if [ ! `which doxygen` ]
-then
-    echo "Couldn't find doxygen program, install Doxygen"
-    exit 1
-fi
-
-if [ ! `which gtkdocize` ]
-then
-    echo "Couldn't find gtkdocize program, install gtkdocize"
-    exit 1
-fi
+./check_prereqs.sh
 
 function build_toolchain_file () {
     if [ ! $1 ]
@@ -73,15 +33,15 @@ do
     export MODULE=$module
     cd $BASE_DIR/source/$MODULE
 
-    if [ -f ../../patches/$MODULE.patch ]
+    if [ -f $PATCH_DIR/$MODULE.patch ]
     then
         echo "Patching $MODULE"
-        patch -p0 < ../../patches/$MODULE.patch
+        patch -p0 < $PATCH_DIR/$MODULE.patch
     else
         echo "No patch found"
     fi
 
-    ../../modules-phase1/build-$MODULE.sh || exit 1
+    $MODULES_DIR_1/build-$MODULE.sh || exit 1
 done
 
 cd $BASE_DIR
@@ -92,17 +52,17 @@ do
     export MODULE=$module
     cd $BASE_DIR/source/$MODULE
 
-    if [ -f ../../modules-phase2/build-$MODULE.sh ]
+    if [ -f $MODULES_DIR_2/build-$MODULE.sh ]
     then
-        if [ -f ../../patches/$MODULE.patch ]
+        if [ -f $PATCH_DIR/$MODULE.patch ]
         then
             echo "Patching $MODULE"
-            patch -p0 < ../../patches/$MODULE.patch
+            patch -p0 < $PATCH_DIR/$MODULE.patch
         else
             echo "No patch found"
         fi
 
-        ../../modules-phase2/build-$MODULE.sh || exit 1
+        $MODULES_DIR_2/build-$MODULE.sh || exit 1
     fi
 done
 

@@ -10,6 +10,7 @@ cmake .. -G"Unix Makefiles" \
     -DCMAKE_CACHEFILE_DIR=$BASE_DIR/source/$MODULE/pbuild \
     || exit 1;
   make && \
-  cp libportmidi.dll libportmidi.dll.a libportmidi_s.a $PREFIX/lib &&
+  cp libportmidi.dll.a libportmidi_s.a $PREFIX/lib &&
+  cp libportmidi.dll $PREFIX/bin &&
   cp ../pm_common/portmidi.h ../porttime/porttime.h $PREFIX/include
 

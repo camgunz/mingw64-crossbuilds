@@ -9,8 +9,8 @@ make && make install
 
 # Work around libpng/libtool/MinGW-w64/Code::Blocks problem on Windows
 
-cp $BUILD_DIR/include/libpng15/* $BUILD_DIR/include/ || exit 1
-rm -f $BUILD_DIR/lib/libpng.* || exit 1
-cp $BUILD_DIR/lib/libpng15.a $BUILD_DIR/lib/libpng.a || exit 1
-cp $BUILD_DIR/lib/libpng15.dll.a $BUILD_DIR/lib/libpng.dll.a || exit 1
+cp $PREFIX/include/libpng15/* $PREFIX/include/ || exit 1
+rm -f $PREFIX/lib/libpng.* || exit 1
+cp $PREFIX/lib/libpng15.a $PREFIX/lib/libpng.a || exit 1
+cp $PREFIX/lib/libpng15.dll.a $PREFIX/lib/libpng.dll.a || exit 1
 

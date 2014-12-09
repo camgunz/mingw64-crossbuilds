@@ -84,3 +84,8 @@ then
     exit 1
 fi
 
+if [ ! -f archives.list ]
+then
+    ./build_lists.py || exit 1
+fi
+

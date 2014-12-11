@@ -4,6 +4,11 @@
 
 ./check_prereqs.sh
 
+if [ $? -ne 0 ]
+then
+    exit 1
+fi
+
 rm -rf $SOURCE_DIR || exit 1
 mkdir $SOURCE_DIR || exit 1
 cd $SOURCE_DIR

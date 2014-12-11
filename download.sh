@@ -4,6 +4,11 @@
 
 ./check_prereqs.sh
 
+if [ $? -ne 0 ]
+then
+    exit 1
+fi
+
 if [ ! -d $ARCHIVE_DIR ]
 then
     mkdir $ARCHIVE_DIR;

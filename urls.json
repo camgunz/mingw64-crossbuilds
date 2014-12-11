@@ -30,6 +30,7 @@
     { "url": "ftp://ftp.remotesensing.org/pub/libtiff/tiff-4.0.3.tar.gz" },
     { "url": "https://webp.googlecode.com/files/libwebp-0.4.0.tar.gz" },
     { "url": "https://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz" },
+    { "url": "http://www.colm.net/files/ragel/ragel-6.9.tar.gz" },
     { "url": "http://downloads.sourceforge.net/project/freetype/freetype2/2.5.3/freetype-2.5.3.tar.bz2" },
     { "url": "https://github.com/behdad/harfbuzz" },
     { "url": "http://www.freedesktop.org/software/fontconfig/release/fontconfig-2.11.1.tar.bz2" },

@@ -54,11 +54,11 @@ then
     exit 1
 fi
 
-if [ ! `which ragel` ]
-then
-    echo "Couldn't find ragel program, install ragel"
-    exit 1
-fi
+# if [ ! `which ragel` ]
+# then
+#     echo "Couldn't find ragel program, install ragel"
+#     exit 1
+# fi
 
 if [ ! `which doxygen` ]
 then

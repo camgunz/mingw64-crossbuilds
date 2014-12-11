@@ -1,7 +1,20 @@
 # mingw64-builds
 
-This is a small repository of scripts that cross-compile various libraries from Linux to
-Windows.
+This is a small repository of scripts that compile various libraries using
+MinGW-w64.
+
+## Compilation
+
+Compilation on Windows is a work-in-progress.  mingw64-builds was originally
+designed as a cross-compilation repository, but its target has since switched
+to native compilation.
+
+## Cross-Compilation
+
+It is essentially impossible to cross-compile GObject Introspection.  At some
+point I'll probably add a check for cross-compilation and skip GI and LGI (Lua
+GObject Introspection).  In the meantime, support for cross-compilation is
+suspended.
 
 ## Choices
 

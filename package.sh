@@ -14,7 +14,7 @@ then
     rm -f $PACKAGE_FILENAME || exit 1
 fi
 
-bsdtar -chf $PACKAGE_TARNAME $BUILD_DIR
+bsdtar -chf $PACKAGE_TARNAME build
 
 xz -z9 $PACKAGE_TARNAME
 

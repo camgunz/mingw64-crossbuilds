@@ -1,0 +1,21 @@
+--- lgi/Makefile	2014-12-23 13:59:27.238635116 +0000
++++ lgi/Makefile	2014-12-23 13:59:48.021286781 +0000
+@@ -5,8 +5,8 @@
+ # License: MIT
+ #
+ 
+-PREFIX = /usr/local
+-LUA_VERSION=5.1
++PREFIX ?= /usr/local
++LUA_VERSION ?= 5.1
+ LUA_LIBDIR = $(PREFIX)/lib/lua/$(LUA_VERSION)
+ LUA_SHAREDIR = $(PREFIX)/share/lua/$(LUA_VERSION)
+ 
+@@ -27,6 +27,7 @@
+ CORE = corelgilua51.so
+ LIBFLAG = -shared
+ CCSHARED = -fPIC
++LIBS += -llua
+ endif
+ endif
+ 

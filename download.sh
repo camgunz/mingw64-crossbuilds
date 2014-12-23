@@ -16,7 +16,7 @@ do
     if [ ! -f $archive ]
     then
         echo "Downloading `basename $url`"
-        curl --remote-name -L "$url" || exit 1
+        curl --retry 5 --remote-name -L "$url" || exit 1
     fi
 done
 

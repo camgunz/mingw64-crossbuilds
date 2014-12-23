@@ -25,8 +25,8 @@ function build_toolchain_file () {
 
 export -f build_toolchain_file
 
-# rm -rf $BUILD_DIR || exit 1
-# mkdir $BUILD_DIR || exit 1
+rm -rf $BUILD_DIR || exit 1
+mkdir $BUILD_DIR || exit 1
 
 for module in `cat modules.list`
 do
@@ -44,25 +44,25 @@ do
     $MODULES_DIR_1/build-$MODULE.sh || exit 1
 done
 
-cd $BASE_DIR
-./unpack.sh
-
-for module in `cat modules.list`
-do
-    export MODULE=$module
-    cd $BASE_DIR/source/$MODULE
-
-    if [ -f $MODULES_DIR_2/build-$MODULE.sh ]
-    then
-        if [ -f $PATCH_DIR/$MODULE.patch ]
-        then
-            echo "Patching $MODULE"
-            patch -p0 < $PATCH_DIR/$MODULE.patch
-        else
-            echo "No patch found"
-        fi
-
-        $MODULES_DIR_2/build-$MODULE.sh || exit 1
-    fi
-done
+# cd $BASE_DIR
+# ./unpack.sh
+# 
+# for module in `cat modules.list`
+# do
+#     export MODULE=$module
+#     cd $BASE_DIR/source/$MODULE
+# 
+#     if [ -f $MODULES_DIR_2/build-$MODULE.sh ]
+#     then
+#         if [ -f $PATCH_DIR/$MODULE.patch ]
+#         then
+#             echo "Patching $MODULE"
+#             patch -p0 < $PATCH_DIR/$MODULE.patch
+#         else
+#             echo "No patch found"
+#         fi
+# 
+#         $MODULES_DIR_2/build-$MODULE.sh || exit 1
+#     fi
+# done
 

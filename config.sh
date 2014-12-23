@@ -25,13 +25,14 @@ export RC="$BIN_DIR/$HOST_TRIPLET-windres"
 export WINDRES="$BIN_DIR/$HOST_TRIPLET-windres"
 
 export PREFIX=$BUILD_DIR
+# export LUA_INCLUDE_DIR="$HOST_PREFIX/include/lua5.1"
 export CFLAGS="-I$HOST_PREFIX/include -I$PREFIX/include"
 export CPPFLAGS="-I$HOST_PREFIX/include -I$PREFIX/include"
 export CXXFLAGS="-I$PREFIX/include"
-export LDFLAGS="-L$PREFIX/bin -L$PREFIX/lib"
+export LDFLAGS="-L$PREFIX/bin -L$PREFIX/lib -L$HOST_PREFIX/bin -L$HOST_PREFIX/lib"
 export PATH="$PREFIX/bin":$PATH
-export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
-export PKG_CONFIG_LIBDIR="$PREFIX/lib/pkgconfig"
+# export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
+# export PKG_CONFIG_LIBDIR="$PREFIX/lib/pkgconfig"
 
 export PACKAGE_TARNAME="mingw64-builds.tar"
 export PACKAGE_FILENAME="mingw64-builds.tar.xz"

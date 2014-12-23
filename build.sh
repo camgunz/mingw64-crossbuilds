@@ -41,28 +41,6 @@ do
         echo "No patch found"
     fi
 
-    $MODULES_DIR_1/build-$MODULE.sh || exit 1
+    $MODULES_DIR/build-$MODULE.sh || exit 1
 done
-
-# cd $BASE_DIR
-# ./unpack.sh
-# 
-# for module in `cat modules.list`
-# do
-#     export MODULE=$module
-#     cd $BASE_DIR/source/$MODULE
-# 
-#     if [ -f $MODULES_DIR_2/build-$MODULE.sh ]
-#     then
-#         if [ -f $PATCH_DIR/$MODULE.patch ]
-#         then
-#             echo "Patching $MODULE"
-#             patch -p0 < $PATCH_DIR/$MODULE.patch
-#         else
-#             echo "No patch found"
-#         fi
-# 
-#         $MODULES_DIR_2/build-$MODULE.sh || exit 1
-#     fi
-# done
 

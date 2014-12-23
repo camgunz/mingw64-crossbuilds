@@ -8,8 +8,7 @@ export BUILD_DIR=$BASE_DIR/build
 export SOURCE_DIR=$BASE_DIR/source
 export ARCHIVE_DIR=$BASE_DIR/archives
 export PATCH_DIR=$BASE_DIR/patches
-export MODULES_DIR_1=$BASE_DIR/modules-phase1
-export MODULES_DIR_2=$BASE_DIR/modules-phase2
+export MODULES_DIR=$BASE_DIR/modules
 
 export AR="$BIN_DIR/$HOST_TRIPLET-ar"
 export CC="$BIN_DIR/$HOST_TRIPLET-gcc"

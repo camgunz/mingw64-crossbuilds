@@ -32,6 +32,7 @@ export LDFLAGS="-L$PREFIX/bin -L$PREFIX/lib -L$HOST_PREFIX/bin -L$HOST_PREFIX/li
 export PATH="$PREFIX/bin":$PATH
 # export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
 # export PKG_CONFIG_LIBDIR="$PREFIX/lib/pkgconfig"
+# export PKG_CONFIG_SYSROOT_DIR="$PREFIX"
 
 export PACKAGE_TARNAME="mingw64-builds.tar"
 export PACKAGE_FILENAME="mingw64-builds.tar.xz"

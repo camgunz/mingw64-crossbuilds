@@ -4,6 +4,11 @@
 
 ./check_prereqs.sh
 
+if [ $? -ne 0 ]
+then
+    exit 1
+fi
+
 if [ -f $PACKAGE_TARNAME ]
 then
     rm -f $PACKAGE_TARNAME || exit 1

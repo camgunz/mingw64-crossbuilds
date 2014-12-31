@@ -84,6 +84,12 @@ then
     exit 1
 fi
 
+if [ ! "`which lua5.1`" ]
+then
+    echo "Couldn't find lua5.1 program, install Lua 5.1"
+    exit 1
+fi
+
 if [ ! -f archives.list ]
 then
     ./build_lists.py || exit 1

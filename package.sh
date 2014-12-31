@@ -19,7 +19,9 @@ then
     rm -f $PACKAGE_FILENAME || exit 1
 fi
 
-bsdtar -chf $PACKAGE_TARNAME build
+cp -Ru "$HOST_PREFIX"/* build/ || exit 1
 
-xz -z9 $PACKAGE_TARNAME
+bsdtar -chf $PACKAGE_TARNAME build || exit 1
+
+xz -z9 $PACKAGE_TARNAME || exit 1
 

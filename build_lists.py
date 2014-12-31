@@ -32,9 +32,16 @@ modules = []
 def get_module(url, mod_dict):
     basename = mod_dict.get('archive', os.path.basename(url))
 
-    for repository, repo_class in repositories:
-        if url.startswith(repository):
-            return repo_class(basename, url)
+    if 'type' in mod_dict:
+        mod_type = mod_dict['type'].lower()
+        if mod_type == 'git':
+            return GitModule(basename, url)
+        elif mod_type == 'hg' or mod_type == 'mercurial':
+            return HgModule(basename, url)
+        elif mod_type == 'svn' or mod_type == 'subversion':
+            return SvnModule(basename, url)
+        else:
+            raise Exception('Invalid module type %s' % (mod_dict['type']))
 
     for extension in archive_extensions:
         if 'module' in mod_dict:

@@ -2,45 +2,10 @@
 
 . ./config.sh
 
-if [ ! `which msgfmt` ]
-then
-    echo "Couldn't find msgfmt program, install gettext"
-    exit 1
-fi
+./check_prereqs.sh
 
-if [ ! `which libtool` ]
+if [ $? -ne 0 ]
 then
-    echo "Couldn't find libtool program, install libtool"
-    exit 1
-fi
-
-if [ ! `which pkg-config` ]
-then
-    echo "Couldn't find pkg-config program, install pkg-config"
-    exit 1
-fi
-
-if [ ! `which patch` ]
-then
-    echo "Couldn't find patch program, install patch"
-    exit 1
-fi
-
-if [ ! `which ragel` ]
-then
-    echo "Couldn't find ragel program, install ragel"
-    exit 1
-fi
-
-if [ ! `which doxygen` ]
-then
-    echo "Couldn't find doxygen program, install Doxygen"
-    exit 1
-fi
-
-if [ ! `which gtkdocize` ]
-then
-    echo "Couldn't find gtkdocize program, install gtkdocize"
     exit 1
 fi
 
@@ -73,36 +38,14 @@ do
     export MODULE=$module
     cd $BASE_DIR/source/$MODULE
 
-    if [ -f ../../patches/$MODULE.patch ]
+    if [ -f $PATCH_DIR/$MODULE.patch ]
     then
         echo "Patching $MODULE"
-        patch -p0 < ../../patches/$MODULE.patch
+        patch -p0 < $PATCH_DIR/$MODULE.patch
     else
         echo "No patch found"
     fi
 
-    ../../modules-phase1/build-$MODULE.sh || exit 1
-done
-
-cd $BASE_DIR
-./unpack.sh
-
-for module in `cat modules.list`
-do
-    export MODULE=$module
-    if [ -f $BASE_DIR/modules-phase2/build-$MODULE.sh ]
-    then
-        cd $BASE_DIR/source/$MODULE
-
-        if [ -f ../../patches/$MODULE.patch ]
-        then
-            echo "Patching $MODULE"
-            patch -p0 < ../../patches/$MODULE.patch
-        else
-            echo "No patch found"
-        fi
-
-        ../../modules-phase2/build-$MODULE.sh || exit 1
-    fi
+    $MODULES_DIR/build-$MODULE.sh || exit 1
 done
 

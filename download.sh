@@ -1,14 +1,17 @@
 #!/bin/bash
 
-if [ ! `which curl` ]
+. ./config.sh
+
+./check_prereqs.sh
+
+if [ $? -ne 0 ]
 then
-    echo "Couldn't find curl program, install curl"
     exit 1
 fi
 
-if [ ! -d archives ]
+if [ ! -d $ARCHIVE_DIR ]
 then
-    mkdir archives;
+    mkdir $ARCHIVE_DIR;
 fi
 
 cd archives;
@@ -18,7 +21,7 @@ do
     if [ ! -f $archive ]
     then
         echo "Downloading `basename $url`"
-        curl --remote-name -L "$url" || exit 1
+        curl --retry 5 --remote-name -L "$url" || exit 1
     fi
 done
 

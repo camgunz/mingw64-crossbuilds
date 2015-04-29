@@ -30,7 +30,7 @@ export CPPFLAGS="-I$HOST_PREFIX/include -I$PREFIX/include"
 export CXXFLAGS="-I$PREFIX/include"
 export LDFLAGS="-L$PREFIX/bin -L$PREFIX/lib -L$HOST_PREFIX/bin -L$HOST_PREFIX/lib"
 export PATH="$PREFIX/bin":$PATH
-# export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig"
+export PKG_CONFIG_PATH="$HOST_PREFIX/lib/pkgconfig:$PREFIX/lib/pkgconfig"
 # export PKG_CONFIG_LIBDIR="$PREFIX/lib/pkgconfig"
 # export PKG_CONFIG_SYSROOT_DIR="$PREFIX"
 

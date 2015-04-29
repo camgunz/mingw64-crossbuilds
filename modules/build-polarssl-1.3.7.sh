@@ -5,5 +5,5 @@ cmake . -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$PREFIX \
                            || exit 1
 
 make || exit 1
-make install
+make install || exit 1
 

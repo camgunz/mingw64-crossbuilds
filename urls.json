@@ -1,20 +1,25 @@
 [
- { "url": "http://ftp.gnome.org/pub/GNOME/sources/pango/1.36/pango-1.36.5.tar.xz" },
- {
-   "url": "http://downloads.sourceforge.net/project/msys2/REPOS/MINGW/i686/mingw-w64-i686-gobject-introspection-1.42.0-2-any.pkg.tar.xz",
-   "module": "gobject-introspection-1.42.0-2-any"
- },
- {
-   "url": "https://bitbucket.org/lucashnegri/lgob",
-   "type": "git"
- },
- { "url": "http://downloads.sourceforge.net/project/fluidsynth/fluidsynth-1.1.6/fluidsynth-1.1.6.tar.bz2" },
- {
-   "url": "http://downloads.sourceforge.net/project/portmedia/portmidi/217/portmidi-src-217.zip",
-   "module": "portmidi"
- },
- {
-   "url": "https://polarssl.org/download/polarssl-1.3.7-gpl.tgz",
-   "module": "polarssl-1.3.7"
- }
+  {
+    "url": "http://ftp.gnome.org/pub/GNOME/sources/pango/1.36/pango-1.36.5.tar.xz"
+  },
+  {
+    "url": "http://downloads.sourceforge.net/project/msys2/REPOS/MINGW/i686/mingw-w64-i686-gobject-introspection-1.42.0-2-any.pkg.tar.xz",
+    "module": "gobject-introspection-1.42.0-2-any"
+  },
+  {
+    "url": "https://github.com/pavouk/lgi",
+    "module": "lgi",
+    "type": "git"
+  },
+  {
+      "url": "http://downloads.sourceforge.net/project/fluidsynth/fluidsynth-1.1.6/fluidsynth-1.1.6.tar.bz2"
+  },
+  {
+    "url": "http://downloads.sourceforge.net/project/portmedia/portmidi/217/portmidi-src-217.zip",
+    "module": "portmidi"
+  },
+  {
+    "url": "https://polarssl.org/download/polarssl-1.3.7-gpl.tgz",
+    "module": "polarssl-1.3.7"
+  }
 ]

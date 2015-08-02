@@ -25,9 +25,9 @@ export WINDRES="$BIN_DIR/$HOST_TRIPLET-windres"
 
 export PREFIX=$BUILD_DIR
 # export LUA_INCLUDE_DIR="$HOST_PREFIX/include/lua5.1"
-export CFLAGS="-I$HOST_PREFIX/include -I$PREFIX/include"
-export CPPFLAGS="-I$HOST_PREFIX/include -I$PREFIX/include"
-export CXXFLAGS="-I$PREFIX/include"
+export CFLAGS="-I$HOST_PREFIX/include -I$PREFIX/include -I${HOST_PREFIX}/include/glib-2.0"
+export CPPFLAGS="-I$HOST_PREFIX/include -I$PREFIX/include -I${HOST_PREFIX}/include/glib-2.0"
+export CXXFLAGS="-I$PREFIX/include -I${HOST_PREFIX}/include/glib-2.0"
 export LDFLAGS="-L$PREFIX/bin -L$PREFIX/lib -L$HOST_PREFIX/bin -L$HOST_PREFIX/lib"
 export PATH="$PREFIX/bin":$PATH
 export PKG_CONFIG_PATH="$HOST_PREFIX/lib/pkgconfig:$PREFIX/lib/pkgconfig"

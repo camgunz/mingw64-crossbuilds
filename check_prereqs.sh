@@ -84,9 +84,9 @@ then
     exit 1
 fi
 
-if [ ! "`which lua5.1`" ]
+if [ ! "`which lua`" ]
 then
-    echo "Couldn't find lua5.1 program, install Lua 5.1"
+    echo "Couldn't find lua program, install Lua"
     exit 1
 fi
 

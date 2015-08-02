@@ -2,7 +2,7 @@
 +++ lib/pkgconfig/gobject-introspection-1.0.pc	2014-12-22 15:51:06.797138071 +0000
 @@ -1,4 +1,4 @@
 -prefix=/mingw32
-+prefix=/home/charlie/mingw64-builds/build
++prefix=/home/charlie/code/mingw64-crossbuilds/build
  exec_prefix=${prefix}
  libdir=${exec_prefix}/lib
  bindir=${exec_prefix}/bin

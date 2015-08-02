@@ -27,9 +27,9 @@ do
     fi
 
     # CG: [XXX] Hack :/
-    if [ "$archive" = 'mingw-w64-i686-gobject-introspection-1.42.0-2-any.pkg.tar.xz' ]
+    if [ "$archive" = 'mingw-w64-i686-gobject-introspection-1.44.0-3-any.pkg.tar.xz' ]
     then
-        mv 'mingw32' 'gobject-introspection-1.42.0-2-any'
+        mv 'mingw32' 'gobject-introspection-1.44.0-3-any'
     fi
 done
 
